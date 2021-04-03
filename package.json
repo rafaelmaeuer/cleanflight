@@ -1,0 +1,10 @@
+{
+    "name": "cleanflight",
+    "version": "4.2.0",
+    "scripts": {
+      "install SDK": "make arm_sdk_install",
+      "make NAZE": "make TARGET=NAZE",
+      "clean Export": "rm -rf ./obj",
+      "open Export": "open ./obj"
+    }
+}

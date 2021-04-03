@@ -57,13 +57,13 @@
 #define USE_RX_MSP
 
 #define USE_EXTI
-#define MAG_INT_EXTI            PC14
+//#define MAG_INT_EXTI            PC14
 #define USE_GYRO_EXTI
-#define GYRO_1_EXTI_PIN         PC13
-#define MMA8451_INT_PIN         PA5
+#define GYRO_1_EXTI_PIN         PC13    // Gyroscope
+#define MMA8451_INT_PIN         PA5     // Accelerometer
 
 #define USE_MPU_DATA_READY_SIGNAL
-#define USE_MAG_DATA_READY_SIGNAL
+//#define USE_MAG_DATA_READY_SIGNAL
 
 #define USE_SPI
 #define USE_SPI_DEVICE_2
@@ -76,16 +76,16 @@
 #define FLASH_SPI_INSTANCE      NAZE_SPI_INSTANCE
 
 #define GYRO_1_CS_PIN           NAZE_SPI_CS_PIN
-#define GYRO_1_SPI_INSTANCE     NAZE_SPI_INSTANCE
+//#define GYRO_1_SPI_INSTANCE     NAZE_SPI_INSTANCE
 
 #define USE_FLASHFS
 #define USE_FLASH_M25P16
 
 #define USE_GYRO
-#define USE_GYRO_MPU3050
-#define USE_GYRO_MPU6050
+//#define USE_GYRO_MPU3050
+//#define USE_GYRO_MPU6050
 #define USE_GYRO_MPU6500
-#define USE_GYRO_SPI_MPU6500
+//#define USE_GYRO_SPI_MPU6500
 
 #define GYRO_1_ALIGN            CW0_DEG
 
@@ -93,14 +93,13 @@
 //#define USE_ACC_ADXL345
 //#define USE_ACC_BMA280
 //#define USE_ACC_MMA8452
-#define USE_ACC_MPU6050
+//#define USE_ACC_MPU6050
 #define USE_ACC_MPU6500
-#define USE_ACC_SPI_MPU6500
+//#define USE_ACC_SPI_MPU6500
 
 //#define ACC_ADXL345_ALIGN       CW270_DEG
 //#define ACC_MMA8452_ALIGN       CW90_DEG
 //#define ACC_BMA280_ALIGN        CW0_DEG
-
 
 // Barometer dropped to make flash space
 //#define USE_BARO
@@ -125,17 +124,17 @@
 /* only 2 uarts available on the NAZE, add ifdef here if present on other boards */
 //#define USE_UART3
 #define USE_SOFTSERIAL1
-#define USE_SOFTSERIAL2
-#define SERIAL_PORT_COUNT       4
+//#define USE_SOFTSERIAL2
+#define SERIAL_PORT_COUNT       3
 
 #define SOFTSERIAL1_RX_PIN      PA6 // PWM 5
 #define SOFTSERIAL1_TX_PIN      PA7 // PWM 6
 
-#define SOFTSERIAL2_RX_PIN      PB0 // PWM 7
-#define SOFTSERIAL2_TX_PIN      PB1 // PWM 8
+//#define SOFTSERIAL2_RX_PIN      PB0 // PWM 7
+//#define SOFTSERIAL2_TX_PIN      PB1 // PWM 8
 
-#define UART3_RX_PIN            PB11
-#define UART3_TX_PIN            PB10
+//#define UART3_RX_PIN            PB11
+//#define UART3_TX_PIN            PB10
 
 #define USE_I2C
 #define USE_I2C_DEVICE_2
@@ -160,3 +159,35 @@
 
 #define USABLE_TIMER_CHANNEL_COUNT 14
 #define USED_TIMERS             ( TIM_N(1) | TIM_N(2) | TIM_N(3) | TIM_N(4) )
+
+// Disable features to save space
+#undef USE_TASK_STATISTICS
+#undef USE_SERIAL_PASSTHROUGH
+
+#undef USE_SERIALRX_CRSF       // Team Black Sheep Crossfire protocol
+#undef USE_SERIALRX_IBUS       // FlySky and Turnigy receivers
+#undef USE_SERIALRX_SBUS       // Frsky and Futaba receivers
+#undef USE_SERIALRX_SPEKTRUM   // SRXL, DSM2 and DSMX protocol
+#undef USE_SERIALRX_SUMD       // Graupner Hott protocol
+#undef USE_SERIALRX_SUMH       // Graupner legacy protocol
+#undef USE_SERIALRX_XBUS       // JR
+
+//#undef USE_ACRO_TRAINER
+#undef USE_BLACKBOX
+#undef USE_CLI_BATCH
+//#undef USE_RESOURCE_MGMT
+//#undef USE_RUNAWAY_TAKEOFF     // Runaway Takeoff Prevention (anti-taz)
+#undef USE_SERVOS
+
+//#undef USE_TELEMETRY
+#undef USE_TELEMETRY_FRSKY
+#undef USE_TELEMETRY_HOTT
+#undef USE_TELEMETRY_LTM
+#undef USE_TELEMETRY_SMARTPORT
+#undef USE_TELEMETRY_FRSKY_HUB
+
+// Enable features with free space
+#define USE_PWM
+#define USE_GPS
+#define USE_GPS_NMEA
+#define USE_GPS_RESCUE
